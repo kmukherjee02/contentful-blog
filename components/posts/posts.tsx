@@ -1,5 +1,6 @@
 import Link from "next/link"
 import ContentfulImage from "../contentfulImage"
+import Date from "@components/date"
 import {createAbsoluteUrl, encodeEmailAddress} from '@lib/utils/utilities'
 
 
