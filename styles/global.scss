@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    ul{
+        list-style: disc;
+        margin: 2rem
+    }
+    .post-body p{
+        margin: 1rem
+    }
+    .asset-body{
+        p{
+            margin: 1rem
+        }
+        h3{
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center
+        }
+        pre {
+            background: #1d1f21;
+            display: flex;
+            margin: 1.5rem;
+            padding: 1.5rem;
+            code {
+                color: #f8f8f2;
+                text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+                direction: ltr;
+                text-align: left;
+                white-space: pre;
+                word-spacing: normal;
+                word-break: normal;
+                line-height: 1.5;
+                tab-size: 4;
+                hyphens: none;
+            }
+        }
+    } 
+}
