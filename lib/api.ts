@@ -69,6 +69,7 @@ export async function fetchAllPostEntries(){
   if(accessToken){
     const entries = await client.getEntries({
       content_type: postContentTypeId,
+      limit: 1000,
       order: "-sys.updatedAt",
     })
     if (entries.items) return entries.items
@@ -81,6 +82,7 @@ export async function fetchAllPostEntriesSlug(skip : number = 0){
   if(accessToken){
     const entries = await client.getEntries({
       content_type: postContentTypeId,
+      limit: 1000,
       order: "-sys.updatedAt",
     })
     if (entries.items) {
