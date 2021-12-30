@@ -1,5 +1,5 @@
-import Layout from '../components/layout'
-import {readAssetFile} from '../lib/mdParser';
+import Layout from '@components/layout'
+import {readAssetFile} from '@lib/utils/mdParser';
 import { GetStaticProps } from 'next'
 
 export default function Home({assetData}) {

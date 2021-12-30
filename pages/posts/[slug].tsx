@@ -1,12 +1,12 @@
-import Layout from '../../components/layout'
-import { fetchAllPostEntriesSlug, fetchEntriesBySlug } from '../../lib/api'
+import Layout from '@components/layout'
+import { fetchAllPostEntriesSlug, fetchEntriesBySlug } from '@lib/api'
 import Head from 'next/head'
-import Date from '../../components/date'
+import Date from '@components/date'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Link from 'next/link'
-import {encodeEmailAddress} from '../../lib/utilities';
-import {generateHTMLFromMarkDown} from '../../lib/mdParser';
-import ContentfulImage from '../../components/contentfulImage';
+import {encodeEmailAddress} from '@lib/utils/utilities';
+import {generateHTMLFromMarkDown} from '@lib/utils/mdParser';
+import ContentfulImage from '@components/contentfulImage';
 
 export default function Post({postData}) {
   return (
@@ -42,7 +42,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await fetchAllPostEntriesSlug();
   return {
     paths,
-    fallback: false
+    fallback: 'blocking'
   }
 }
 
@@ -52,6 +52,7 @@ export const getStaticProps: GetStaticProps = async ({ params, preview = false }
   return {
     props: {
       postData
-    }
+    },
+    revalidate: 60
   }
 }

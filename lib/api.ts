@@ -1,4 +1,5 @@
-import {encodeEmailAddress, decodeEmailId} from './utilities'
+import {encodeEmailAddress, decodeEmailId} from './utils/utilities'
+import {Config} from './utils/constants';
 
 const space = process.env.CONTENTFUL_SPACE_ID
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN 
@@ -65,14 +66,16 @@ export async function fetchEntriesBySlug(preview, slug : string){
    return await fetchEntries(postContentTypeId, slug); 
 }
 
-export async function fetchAllPostEntries(){
+export async function fetchPostEntries(page : string = "0"){
   if(accessToken){
+    const skip = parseInt(page) * Config.pagination.pageSize; 
     const entries = await client.getEntries({
       content_type: postContentTypeId,
-      limit: 1000,
+      skip: skip,
+      limit: Config.pagination.pageSize,
       order: "-sys.updatedAt",
     })
-    if (entries.items) return entries.items
+    if (entries.items) return entries
     console.log(`Error getting Entries for post.`)
   }
   console.log(`Access Token is undefined`);
@@ -82,7 +85,7 @@ export async function fetchAllPostEntriesSlug(skip : number = 0){
   if(accessToken){
     const entries = await client.getEntries({
       content_type: postContentTypeId,
-      limit: 1000,
+      limit: 100,
       order: "-sys.updatedAt",
     })
     if (entries.items) {

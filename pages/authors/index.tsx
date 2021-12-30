@@ -1,9 +1,9 @@
-import Layout from '../../components/layout'
+import Layout from '@components/layout'
 import { GetStaticProps } from 'next'
-import { getAuthors } from '../../lib/api';
-import {encodeEmailAddress} from '../../lib/utilities';
+import { getAuthors } from '@lib/api';
+import {encodeEmailAddress} from '@lib/utils/utilities';
 import Link from 'next/link';
-import ContentfulImage from '../../components/contentfulImage';
+import ContentfulImage from '@components/contentfulImage';
 
 export default function Authors({ authors }) {
     const renderAuthors = authors.map((author, index) => {
@@ -49,6 +49,7 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
         props: {
             authors
-        }
+        },
+        revalidate: 60       
     }
 }

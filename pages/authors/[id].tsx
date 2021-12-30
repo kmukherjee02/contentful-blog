@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { getAuthorIds, getAuthorById } from '../../lib/api'
-import ContentfulImage from '../../components/contentfulImage'
-import Layout from '../../components/layout'
+import { getAuthorIds, getAuthorById } from '@lib/api'
+import ContentfulImage from '@components/contentfulImage'
+import Layout from '@components/layout'
 
 export default function Author({ author }) {
     return (
@@ -36,7 +36,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const paths = await getAuthorIds()
     return {
         paths,
-        fallback: false
+        fallback: 'blocking'
     }
 }
 
@@ -45,6 +45,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return {
         props: {
             author
-        }
+        },
+        revalidate: 60
     }
 }
