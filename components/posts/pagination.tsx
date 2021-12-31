@@ -4,12 +4,10 @@ import cn from 'classNames';
 
 
 export default function Pagination({ totalPages, currentPage, totalEntries, /* , prevDisabled, nextDisabled */ }) {
-    const prevPageUrl = currentPage === "2"
-        ? "/posts"
-        : `/posts/page/${parseInt(currentPage, 10) - 1}`;
+    const prevPageUrl = `/posts/page/${parseInt(currentPage, 10) - 1}`;
     const nextPageUrl = `/posts/page/${parseInt(currentPage, 10) + 1}`;
     const prevDisabled = parseInt(currentPage) === 1 ? true : false
-    const nextDisabled = parseInt(currentPage) === totalPages - 1 ? true : false
+    const nextDisabled = parseInt(currentPage) === totalPages ? true : false
     const start = (parseInt(currentPage) - 1) * Config.pagination.pageSize;
     const end = start + Config.pagination.pageSize;
 
@@ -45,7 +43,7 @@ export default function Pagination({ totalPages, currentPage, totalEntries, /* ,
                     <div>
                         <Link href={nextPageUrl} passHref>
                             <a href="#" className={cn(
-                                "relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50", 
+                                "relative inline-flex items-center px-2 py-2 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50", 
                                 {   
                                     "rounded-l-md border border-gray-300": !nextDisabled
                                 })

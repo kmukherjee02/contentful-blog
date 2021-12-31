@@ -15,21 +15,16 @@ export default function PostPage({posts, totalPages, currentPage, totalEntries})
 export const getStaticPaths: GetStaticPaths = async () => {
    const totalPostEntries = await fetchPostEntries();
    const totalPages = Math.ceil(totalPostEntries.total / Config.pagination.pageSize);
-
    const paths = [];
 
-    /**
-   * Start from page 2, so we don't replicate /blog
-   * which is page 1
-   */
-  for (let page = 2; page <= totalPages - 1; page++) {
-    paths.push({ params: { page: page.toString() } });
-  }
+    for (let page = 1; page <= totalPages; page++) {
+        paths.push({ params: { page: page.toString() } });
+    }
 
-  return {
-    paths,
-    fallback: 'blocking',
-  };
+    return {
+        paths,
+        fallback: 'blocking',
+    };
 
 }
   
