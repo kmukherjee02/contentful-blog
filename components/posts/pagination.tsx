@@ -1,6 +1,6 @@
 import { Config } from '@lib/utils/constants';
 import Link from 'next/link';
-import cn from 'classNames';
+import cn from 'classnames';
 
 
 export default function Pagination({ totalPages, currentPage, totalEntries, /* , prevDisabled, nextDisabled */ }) {
