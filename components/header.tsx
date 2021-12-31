@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Search from '@components/search'
 
 export default function Header(){
     return(
@@ -21,6 +22,7 @@ export default function Header(){
             </a>
           </Link>
           <div className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+             <Search />
           </div>
         </div>
       </header>  

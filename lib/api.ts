@@ -66,9 +66,9 @@ export async function fetchEntriesBySlug(preview, slug : string){
    return await fetchEntries(postContentTypeId, slug); 
 }
 
-export async function fetchPostEntries(page : string = "1"){
+export async function fetchPostEntries(page : string = "1", limit : number = Config.pagination.pageSize){
   if(accessToken){
-    const skip = (parseInt(page) - 1) * Config.pagination.pageSize;
+    const skip = (parseInt(page) - 1) * limit;
     const entries = await client.getEntries({
       content_type: postContentTypeId,
       skip: skip,

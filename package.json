@@ -3,15 +3,19 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postBuild": "node ./scripts/build-search.js"
   },
   "dependencies": {
+    "algoliasearch": "^4.11.0",
     "contentful": "^9.1.5",
     "date-fns": "^2.27.0",
+    "dotenv": "^10.0.0",
     "gray-matter": "^4.0.3",
     "next": "latest",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-instantsearch-dom": "^6.18.0",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1"
   },
