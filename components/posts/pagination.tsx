@@ -45,7 +45,7 @@ export default function Pagination({ totalPages, currentPage, totalEntries, /* ,
                             <a href="#" className={cn(
                                 "relative inline-flex items-center px-2 py-2 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50", 
                                 {   
-                                    "rounded-l-md border border-gray-300": !nextDisabled
+                                    "rounded-r-md border border-gray-300": !nextDisabled
                                 })
                             }>
                                 {!nextDisabled &&
