@@ -7,6 +7,7 @@ const previewToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
 
 const postContentTypeId = "post"
 const authorContentTypeId = "author"
+const heroImageContentTypeId = 'heroImage'
 
 let client;
 let previewClient;
@@ -145,5 +146,20 @@ export async function getAuthorIds(){
        })
     }
     console.log(`Error getting Entries for post.`)
+  }
+}
+
+
+export async function fetchHeroImage(){
+  if(accessToken){
+    const entries = await client.getEntries({
+      content_type: heroImageContentTypeId,
+      order: "-sys.updatedAt",
+      limit: 1
+    })
+    if (entries.items) {
+      return entries.items
+    }
+    console.log(`Error getting Entries for heroImage.`)
   }
 }

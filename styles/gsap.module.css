@@ -1,0 +1,115 @@
+/* ---- cube---- */
+
+.sceneCube {
+    margin: auto;
+    perspective: none;
+    max-width: 1320px;
+    height: 550px;
+    display: block;
+  }
+  
+  .heroImage {
+    margin: auto;
+    max-width: 1320px;
+    height: 550px;
+    display: block;
+    background-color: rgb(129, 129, 129);
+  }
+  
+  .cube {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(100px); 
+  }
+  
+  .cube__face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    line-height: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+  }
+  
+  .cube.is-backface-hidden .cube__face {
+    backface-visibility: hidden;
+    background: hsla(0, 0%, 100%, 1);
+  }
+  
+  .cube__face--front {
+    background: hsla(0, 0%, 100%, 1);
+  }
+  .cube__face--right {
+    background: hsla(0, 0%, 100%, 1);
+  }
+  .cube__face--back {
+    background: hsla(0, 0%, 100%, 1);
+  }
+  .cube__face--left {
+    background: hsla(0, 0%, 100%, 1);
+  }
+  .cube__face--top {
+    background: hsla(0, 0%, 100%, 1);
+  }
+  .cube__face--bottom {
+    background: hsla(0, 0%, 100%, 1);
+  }
+  
+  .cube__face--front {
+    transform: rotateY(0deg) translateZ(50px);
+  }
+  .cube__face--right {
+    transform: rotateY(90deg) translateZ(50px);
+  }
+  .cube__face--back {
+    transform: rotateY(180deg) translateZ(50px);
+  }
+  .cube__face--left {
+    transform: rotateY(-90deg) translateZ(50px);
+  }
+  .cube__face--top {
+    transform: rotateX(90deg) translateZ(50px);
+  }
+  .cube__face--bottom {
+    transform: rotateX(-90deg) translateZ(50px);
+  }
+  
+  .cube.cube--1 .cube__face--front,
+  .cube.cube--3 .cube__face--front {
+    background: hsla(122, 97%, 70%, 1);
+  }
+  
+  .cube.cube--1 .cube__face--right,
+  .cube.cube--3 .cube__face--right,
+  .cube.cube--9 .cube__face--right,
+  .cube.cube--0 .cube__face--right {
+    background: hsla(0, 0%, 0%, 1);
+  }
+  
+  .cube.cube--0 .cube__face--front,
+  .cube.cube--7 .cube__face--top,
+  .cube.cube--7 .cube__face--bottom,
+  .cube.cube--7 .cube__face--left,
+  .cube.cube--8 .cube__face--front,
+  .cube.cube--8 .cube__face--top,
+  .cube.cube--8 .cube__face--bottom,
+  .cube.cube--8 .cube__face--left,
+  .cube.cube--11 .cube__face--front,
+  .cube.cube--11 .cube__face--bottom,
+  .cube.cube--11 .cube__face--left {
+    display: none;
+  }
+  
+  .triangle {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-left: 350px solid transparent;
+    border-right: 350px solid transparent;
+    border-bottom: 350px solid rgb(255, 255, 255);
+  }
