@@ -12,6 +12,9 @@ export default function Header(){
             <Link href={'/authors'} >
               <a className="mr-5 text-lg hover:text-gray-900">Authors</a>
             </Link>
+            <Link href={'/animation'} >
+              <a className="mr-5 text-lg hover:text-gray-900">Animation</a>
+            </Link>
           </nav>
           <Link href={"/"} >
             <a className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">

@@ -9,5 +9,12 @@ export function decodeEmailId(emailId){
 }
 
 export function createAbsoluteUrl(imageUrl){
-    return "https:" + imageUrl;
+    if (imageUrl) return 'https:' + imageUrl;
+    return undefined;
+}
+
+
+export function getBackgroundImageUrl(url){
+    if (url) return 'bg-[url(' + createAbsoluteUrl(url) + ')]';
+    return undefined; 
 }
