@@ -3,6 +3,7 @@ import { GetStaticProps } from 'next'
 import { getAuthors } from '@lib/api';
 import {encodeEmailAddress} from '@lib/utils/utilities';
 import Link from 'next/link';
+import Head from 'next/head'
 import ContentfulImage from '@components/contentfulImage';
 
 export default function Authors({ authors }) {
@@ -29,6 +30,9 @@ export default function Authors({ authors }) {
     })
     return (
         <Layout>
+            <Head>
+                <title>{'Authors'}</title>
+            </Head>
             <section className="text-gray-600 body-font">
                 <div className="container px-5 py-24 mx-auto">
                     <div className="flex flex-col text-center w-full mb-20">

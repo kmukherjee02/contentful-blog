@@ -33,11 +33,11 @@ export default function Home({entry}) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const entries = await fetchHeroImage();
-    const entry = entries[0]
-    return {
-      props: {
-        entry
-      }
+  const entries = await fetchHeroImage();
+  const entry = entries[0]
+  return {
+    props: {
+      entry
     }
   }
+}

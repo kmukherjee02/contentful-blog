@@ -2,10 +2,14 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import { getAuthorIds, getAuthorById } from '@lib/api'
 import ContentfulImage from '@components/contentfulImage'
 import Layout from '@components/layout'
+import Head from 'next/head'
 
 export default function Author({ author }) {
     return (
         <Layout>
+            <Head>
+                <title>{author.fields.name}</title>
+            </Head>
             <section className="text-gray-600 body-font">
                 <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
                     <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">

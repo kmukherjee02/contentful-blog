@@ -13,7 +13,10 @@ export default function Header(){
               <a className="mr-5 text-lg hover:text-gray-900">Authors</a>
             </Link>
             <Link href={'/animation'} >
-              <a className="mr-5 text-lg hover:text-gray-900">Animation</a>
+              <a className="mr-5 text-lg hover:text-gray-900">GSAP Integration</a>
+            </Link>
+            <Link href={'/hubspot'} >
+              <a className="mr-5 text-lg hover:text-gray-900">Hubspot Integration</a>
             </Link>
           </nav>
           <Link href={"/"} >
